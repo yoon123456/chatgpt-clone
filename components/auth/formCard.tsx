@@ -1,9 +1,7 @@
 import React from "react";
 import {
 	Card,
-	CardAction,
 	CardContent,
-	CardDescription,
 	CardFooter,
 	CardHeader,
 	CardTitle,
@@ -19,8 +17,8 @@ interface IFormCard {
 const FormCard = ({ title, footer, children }: IFormCard) => {
 	return (
 		<Card className="w-[500px] flex flex-col items-center border">
-			<CardHeader>
-				<CardTitle>{title}</CardTitle>
+			<CardHeader className="w-[90%] text-center">
+				<CardTitle className="text-xl">{title}</CardTitle>
 			</CardHeader>
 			<CardContent className="w-[90%]">{children}</CardContent>
 			<CardFooter>
