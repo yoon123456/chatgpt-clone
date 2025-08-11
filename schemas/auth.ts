@@ -24,3 +24,21 @@ export const SignUpSchema = z.object({
 			message: "패스워드는 최소 1개 이상의 특수문자를 포함해야 합니다.",
 		}),
 });
+export const LoginSchema = z.object({
+	email: z.string().email({ message: "올바른 이메일 형식을 입력해주세요." }),
+	password: z
+		.string()
+		.min(8, { message: "패스워드는 최소 8자 이상이어야 합니다." })
+		.regex(/[A-Z]/, {
+			message: "패스워드는 최소 1개 이상의 대문자를 포함해야 합니다.",
+		})
+		.regex(/[a-z]/, {
+			message: "패스워드는 최소 1개 이상의 소문자를 포함해야 합니다.",
+		})
+		.regex(/[0-9]/, {
+			message: "패스워드는 최소 1개 이상의 숫자를 포함해야 합니다.",
+		})
+		.regex(/[\W_]/, {
+			message: "패스워드는 최소 1개 이상의 특수문자를 포함해야 합니다.",
+		}),
+});
