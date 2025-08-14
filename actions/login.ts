@@ -6,7 +6,6 @@ import bcrypt from "bcryptjs";
 import { createSession } from "./sessions";
 import { redirect } from "next/navigation";
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const login = async (_: unknown, formData: FormData) => {
 	const validateFields = LoginSchema.safeParse({
 		email: formData.get("email"),
@@ -29,8 +28,8 @@ export const login = async (_: unknown, formData: FormData) => {
 			};
 		}
 		const { id, name, password: userPassword } = existingUser;
-		const passwrodMatch = await bcrypt.compare(password, userPassword);
-		if (!passwrodMatch) {
+		const passwordMatch = await bcrypt.compare(password, userPassword);
+		if (!passwordMatch) {
 			return {
 				errorMessage: "비밀번호가 일치하지 않습니다.",
 			};
